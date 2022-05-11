@@ -36,4 +36,5 @@ object Versions {
     const val LOGGING = "4.9.0"
     const val TIMBER = "5.0.1"
     const val INTUIT = "1.0.6"
+    const val APOLLO = "3.1.0"
 }

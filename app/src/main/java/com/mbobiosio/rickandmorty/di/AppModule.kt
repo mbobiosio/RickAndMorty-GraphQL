@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.paging.ExperimentalPagingApi
 import androidx.room.Room
 import com.apollographql.apollo3.ApolloClient
+import com.apollographql.apollo3.network.okHttpClient
 import com.mbobiosio.rickandmorty.BuildConfig
 import com.mbobiosio.rickandmorty.data.locale.AppDatabase
 import com.mbobiosio.rickandmorty.data.repository.CharacterRepositoryImpl
@@ -55,7 +56,7 @@ object AppModule {
     fun provideRickAndMortyApi(okHttpClient: OkHttpClient): ApolloClient =
         ApolloClient.Builder().apply {
             serverUrl(Constants.BASE_URL)
-            // okHttpClient(okHttpClient)
+            okHttpClient(okHttpClient)
         }.build()
 
     @Singleton

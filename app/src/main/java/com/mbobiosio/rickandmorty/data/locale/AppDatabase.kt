@@ -8,9 +8,8 @@ import com.mbobiosio.rickandmorty.data.locale.dao.CharacterDao
 import com.mbobiosio.rickandmorty.data.locale.dao.RemoteKeyDao
 import com.mbobiosio.rickandmorty.data.locale.entity.RemoteKeyEntity
 import com.mbobiosio.rickandmorty.data.remote.model.CharacterModel
-import com.mbobiosio.rickandmorty.data.remote.model.Origin
 
-@Database(entities = [CharacterModel::class, RemoteKeyEntity::class, Origin::class], version = DB_VERSION)
+@Database(entities = [CharacterModel::class, RemoteKeyEntity::class], version = DB_VERSION)
 @TypeConverters(DataConverter::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract val characterDao: CharacterDao

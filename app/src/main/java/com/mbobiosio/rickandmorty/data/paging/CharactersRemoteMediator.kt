@@ -13,7 +13,6 @@ import com.mbobiosio.rickandmorty.data.locale.entity.RemoteKeyEntity
 import com.mbobiosio.rickandmorty.data.mappers.mapToDomainModel
 import com.mbobiosio.rickandmorty.data.remote.model.CharacterModel
 import retrofit2.HttpException
-import timber.log.Timber
 import java.io.IOException
 
 @ExperimentalPagingApi
@@ -35,8 +34,8 @@ class CharactersRemoteMediator(
         }
 
         try {
-            val response =
-                service.query(GetCharactersQuery(Optional.presentIfNotNull(page))).execute()
+
+            val response = service.query(GetCharactersQuery(Optional.presentIfNotNull(page))).execute()
 
             val isEndOfList = response.data?.characters?.info?.next == null || response.toString()
                 .contains("error") || response.data?.characters?.results!!.isEmpty()
@@ -60,7 +59,7 @@ class CharactersRemoteMediator(
                 when {
                     response.hasErrors().not() -> {
                         db.remoteKeyDao.insertAll(keys)
-                        Timber.d("${response.data?.characters}")
+
                         db.characterDao.insertCharacters(
                             response.data?.characters!!.results!!.map {
                                 it!!.mapToDomainModel()

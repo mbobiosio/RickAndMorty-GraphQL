@@ -10,6 +10,9 @@ import com.mbobiosio.rickandmorty.data.remote.model.CharacterModel
 @Dao
 interface CharacterDao {
 
+    @Query("SELECT * FROM characters")
+    suspend fun getCharacters(): List<CharacterModel>
+
     @Query("Select * from characters where name LIKE '%' || :characterName || '%'")
     fun getCharactersByName(characterName: String): PagingSource<Int, CharacterModel>
 

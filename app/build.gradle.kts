@@ -37,10 +37,12 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
@@ -62,7 +64,7 @@ dependencies {
     implementation(Dependencies.RETROFIT_ADAPTER)
 
     // grapghql
-    implementation("com.apollographql.apollo3:apollo-runtime:3.1.0")
+    implementation(Dependencies.APOLLO_RUNTIME)
 
     // Room
     implementation(Dependencies.ROOM_RUNTIME)

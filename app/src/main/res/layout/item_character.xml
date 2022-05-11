@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="character"
+            type="com.mbobiosio.rickandmorty.domain.model.Character" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/characterCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true"
+        app:cardCornerRadius="@dimen/_8sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivCharacterProfile"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                loadImage="@{character.image}"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/content_description_profile_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/tvCharacterName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ellipsize="end"
+                android:text="@{character.name}"
+                android:maxLines="1"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivCharacterProfile"
+                tools:text="@tools:sample/full_names" />
+
+            <TextView
+                android:id="@+id/tvCharacterGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_10ssp"
+                android:text="@{character.status}"
+                app:layout_constraintEnd_toEndOf="@+id/tvCharacterName"
+                app:layout_constraintStart_toStartOf="@+id/tvCharacterName"
+                app:layout_constraintTop_toBottomOf="@+id/tvCharacterName"
+                tools:text="Alive" />
+
+            <TextView
+                android:id="@+id/tvCharacterStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:gravity="center"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCharacterGender"
+                tools:text="@tools:sample/lorem" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

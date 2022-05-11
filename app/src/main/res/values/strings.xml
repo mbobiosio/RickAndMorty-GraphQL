@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Rick and Morty</string>
+    <string name="alive">Alive</string>
+    <string name="dead">Dead</string>
+    <string name="unknown">Unknown</string>
+    <string name="info">Info</string>
+    <string name="name">%s </string>
+    <string name="info_species">Species</string>
+    <string name="info_gender">Gender</string>
+    <string name="info_location">Location</string>
+    <string name="info_origin">Origin</string>
+    <string name="error_has_occurred">Error has occurred</string>
+    <string name="content_description_profile_image">Profile image</string>
+    <string name="search_character">Search…</string>
+</resources>
